@@ -10,7 +10,3 @@ dist/
 build/
 *.egg-info/
 .DS_Store
-
-# Local simulation and experiment outputs
-outputs/
-runs/

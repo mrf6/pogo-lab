@@ -11,6 +11,10 @@ install Python if a compatible interpreter is not already available.
 
 ```sh
 uv sync --locked
+source .venv/bin/activate  # macOS/Linux
+pre-commit install
+
+# Or, without activating the virtual environment:
 uv run pre-commit install
 ```
 
