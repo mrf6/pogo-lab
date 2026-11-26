@@ -7,9 +7,9 @@ from pathlib import Path
 
 import pytest
 
+from pogo_lab import Pokemon
 from pogo_lab.data import (
     IVs,
-    Pokemon,
     Type,
     load_game_data,
     load_species,
@@ -114,13 +114,17 @@ def test_validation_errors(tmp_path: Path):
             charged_moves=(game_data.charged_moves["ice_beam"],),
         )
 
-    with pytest.raises(ValueError, match="1 or 2 charged moves"):
+    with pytest.raises(ValueError, match="at most 2 charged moves"):
         Pokemon(
             species=azumarill,
             level=40.0,
             ivs=IVs(0, 15, 15),
             fast_move=game_data.fast_moves["bubble"],
-            charged_moves=(),
+            charged_moves=(
+                game_data.charged_moves["ice_beam"],
+                game_data.charged_moves["play_rough"],
+                game_data.charged_moves["hydro_pump"],
+            ),
         )
 
     bad_pokemon = tmp_path / "pokemon.json"

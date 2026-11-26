@@ -116,26 +116,6 @@ class Species:
 
 
 @dataclass(frozen=True, slots=True)
-class Pokemon:
-    """A configured Pokémon instance ready for ranking or battle simulation."""
-
-    species: Species
-    level: float
-    ivs: IVs
-    fast_move: FastMove
-    charged_moves: tuple[ChargedMove, ...]
-    is_shadow: bool = False
-
-    def __post_init__(self) -> None:
-        if not (1.0 <= self.level <= 51.0) or (self.level * 2) % 1 != 0:
-            raise ValueError(f"Level must be between 1.0 and 51.0 in 0.5 steps, got {self.level}")
-        if not 1 <= len(self.charged_moves) <= 2:
-            raise ValueError(
-                f"Pokemon must have 1 or 2 charged moves, got {len(self.charged_moves)}"
-            )
-
-
-@dataclass(frozen=True, slots=True)
 class GameData:
     """Container for all loaded static Pokémon GO game data."""
 
