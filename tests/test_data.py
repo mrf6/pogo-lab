@@ -86,7 +86,6 @@ def test_species_and_pokemon_instance():
 
     mon = Pokemon(
         species=azumarill,
-        level=45.5,
         ivs=IVs(attack=0, defense=15, hp=15),
         fast_move=game_data.fast_moves["bubble"],
         charged_moves=(
@@ -95,6 +94,7 @@ def test_species_and_pokemon_instance():
         ),
     )
     assert mon.species.id == "azumarill"
+    assert mon.level == 45.5
     assert mon.is_shadow is False
 
 
@@ -108,7 +108,7 @@ def test_validation_errors(tmp_path: Path):
     with pytest.raises(ValueError, match="Level"):
         Pokemon(
             species=azumarill,
-            level=45.25,
+            max_level=45.25,
             ivs=IVs(0, 15, 15),
             fast_move=game_data.fast_moves["bubble"],
             charged_moves=(game_data.charged_moves["ice_beam"],),
@@ -117,7 +117,6 @@ def test_validation_errors(tmp_path: Path):
     with pytest.raises(ValueError, match="at most 2 charged moves"):
         Pokemon(
             species=azumarill,
-            level=40.0,
             ivs=IVs(0, 15, 15),
             fast_move=game_data.fast_moves["bubble"],
             charged_moves=(

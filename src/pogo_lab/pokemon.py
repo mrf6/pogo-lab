@@ -1,11 +1,11 @@
-"""Configured Pokémon instance model with rank- and IV-based constructors."""
+"""Configured Pokémon instance model with CP-cap-aware spread resolution."""
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 
 from pogo_lab.data.classes import ChargedMove, FastMove, IVs, Species
-from pogo_lab.rank_checker.ranking import RankedSpread, get_rank_by_ivs, get_spread_by_rank
+from pogo_lab.rank_checker.ranking import get_spread_by_rank
 from pogo_lab.rank_checker.stats import (
     EffectiveStats,
     calculate_cp,
@@ -15,83 +15,82 @@ from pogo_lab.rank_checker.stats import (
 )
 
 
-@dataclass(frozen=True, slots=True)
+def _resolve_spread(
+    species: Species,
+    *,
+    cp_cap: int | None,
+    max_level: float,
+    rank: int | None,
+    ivs: IVs | None,
+) -> tuple[float, IVs]:
+    """Resolve ``(level, ivs)`` from ``rank`` (default 1) or ``ivs``.
+
+    Uses ``cp_cap`` and ``max_level`` to select or bound the Pokémon's level.
+    """
+    validate_level(max_level)
+    if rank is not None and ivs is not None:
+        raise ValueError("Cannot specify both 'rank' and 'ivs'")
+
+    if ivs is None:
+        target_rank = 1 if rank is None else rank
+        spread = get_spread_by_rank(
+            species,
+            target_rank,
+            cp_cap=cp_cap,
+            max_level=max_level,
+        )
+        return spread.level, spread.ivs
+
+    resolved_level = max_level_for_cp(
+        species.base_stats,
+        ivs,
+        cp_cap=cp_cap,
+        max_level=max_level,
+    )
+    if resolved_level is None:
+        raise ValueError(f"{species.id} with {ivs} exceeds cp_cap={cp_cap} even at level 1.0")
+    return resolved_level, ivs
+
+
+@dataclass(frozen=True, slots=True, init=False)
 class Pokemon:
-    """A configured Pokémon instance ready for ranking or battle simulation."""
+    """A configured Pokémon instance ready for battle simulation."""
 
     species: Species
     level: float
     ivs: IVs
-    fast_move: FastMove | None = None
-    charged_moves: tuple[ChargedMove, ...] = ()
-    is_shadow: bool = False
+    fast_move: FastMove | None
+    charged_moves: tuple[ChargedMove, ...]
+    is_shadow: bool
 
-    def __post_init__(self) -> None:
-        validate_level(self.level)
-        if len(self.charged_moves) > 2:
-            raise ValueError(
-                f"Pokemon can have at most 2 charged moves, got {len(self.charged_moves)}"
-            )
-
-    @classmethod
-    def from_rank(
-        cls,
+    def __init__(
+        self,
         species: Species,
-        rank: int = 1,
         *,
         cp_cap: int | None = 1500,
         max_level: float = 50.0,
-        iv_floor: int = 0,
+        rank: int | None = None,
+        ivs: IVs | None = None,
         fast_move: FastMove | None = None,
         charged_moves: tuple[ChargedMove, ...] = (),
         is_shadow: bool = False,
-    ) -> Pokemon:
-        """Create a Pokémon whose level and IVs correspond to a PvP stat-product ``rank``."""
-        spread = get_spread_by_rank(
+    ) -> None:
+        if len(charged_moves) > 2:
+            raise ValueError(f"Pokemon can have at most 2 charged moves, got {len(charged_moves)}")
+
+        resolved_level, resolved_ivs = _resolve_spread(
             species,
-            rank,
             cp_cap=cp_cap,
             max_level=max_level,
-            iv_floor=iv_floor,
-        )
-        return cls(
-            species=species,
-            level=spread.level,
-            ivs=spread.ivs,
-            fast_move=fast_move,
-            charged_moves=charged_moves,
-            is_shadow=is_shadow,
-        )
-
-    @classmethod
-    def from_ivs(
-        cls,
-        species: Species,
-        ivs: IVs,
-        *,
-        cp_cap: int | None = 1500,
-        max_level: float = 50.0,
-        fast_move: FastMove | None = None,
-        charged_moves: tuple[ChargedMove, ...] = (),
-        is_shadow: bool = False,
-    ) -> Pokemon:
-        """Create a Pokémon at the highest legal level for ``ivs`` under ``cp_cap``."""
-        level = max_level_for_cp(
-            species.base_stats,
-            ivs,
-            cp_cap=cp_cap,
-            max_level=max_level,
-        )
-        if level is None:
-            raise ValueError(f"{species.id} with {ivs} exceeds cp_cap={cp_cap} even at level 1.0")
-        return cls(
-            species=species,
-            level=level,
+            rank=rank,
             ivs=ivs,
-            fast_move=fast_move,
-            charged_moves=charged_moves,
-            is_shadow=is_shadow,
         )
+        object.__setattr__(self, "species", species)
+        object.__setattr__(self, "level", resolved_level)
+        object.__setattr__(self, "ivs", resolved_ivs)
+        object.__setattr__(self, "fast_move", fast_move)
+        object.__setattr__(self, "charged_moves", charged_moves)
+        object.__setattr__(self, "is_shadow", is_shadow)
 
     @property
     def stats(self) -> EffectiveStats:
@@ -102,19 +101,3 @@ class Pokemon:
     def cp(self) -> int:
         """Combat Power at this Pokémon's level and IVs."""
         return calculate_cp(self.species.base_stats, self.ivs, self.level)
-
-    def rank(
-        self,
-        *,
-        cp_cap: int | None = 1500,
-        max_level: float = 50.0,
-        iv_floor: int = 0,
-    ) -> RankedSpread:
-        """Return this Pokémon's IV ranking under the specified league constraints."""
-        return get_rank_by_ivs(
-            self.species,
-            self.ivs,
-            cp_cap=cp_cap,
-            max_level=max_level,
-            iv_floor=iv_floor,
-        )

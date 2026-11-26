@@ -102,25 +102,33 @@ def test_max_level_ineligible_for_cp_cap():
     assert max_level_for_cp(dragonite.base_stats, IVs(15, 15, 15), cp_cap=10) is None
 
 
-def test_pokemon_factories_and_properties():
+def test_pokemon_construction_and_validation():
     game_data = load_game_data()
     azumarill = game_data.species["azumarill"]
+    charizard = game_data.species["charizard"]
+    dragonite = game_data.species["dragonite"]
 
-    # Moves are optional
-    by_rank = Pokemon.from_rank(azumarill, rank=1)
-    assert by_rank.level == 45.5
-    assert by_rank.ivs == IVs(0, 15, 15)
-    assert by_rank.fast_move is None
-    assert by_rank.charged_moves == ()
-    assert by_rank.cp == 1499
-    assert by_rank.stats == calculate_stats(azumarill.base_stats, IVs(0, 15, 15), 45.5)
-    assert by_rank.rank().rank == 1
+    # Default construction: Great League rank 1, no moves
+    default_azu = Pokemon(azumarill)
+    assert default_azu.level == 45.5
+    assert default_azu.ivs == IVs(0, 15, 15)
+    assert default_azu.fast_move is None
+    assert default_azu.charged_moves == ()
+    assert default_azu.cp == 1499
+    assert default_azu.stats == calculate_stats(azumarill.base_stats, IVs(0, 15, 15), 45.5)
 
-    # Explicit IVs with auto-selected max legal level
-    by_ivs = Pokemon.from_ivs(
+    # Explicit CP cap + rank
+    ul_charizard = Pokemon(charizard, cp_cap=2500, rank=10)
+    expected_ul = get_spread_by_rank(charizard, 10, cp_cap=2500)
+    assert ul_charizard.ivs == expected_ul.ivs
+    assert ul_charizard.level == expected_ul.level
+    assert ul_charizard.cp <= 2500
+
+    # Explicit IVs with auto-selected max legal level and independent moves
+    by_ivs = Pokemon(
         azumarill,
-        IVs(0, 15, 15),
         cp_cap=1500,
+        ivs=IVs(0, 15, 15),
         fast_move=game_data.fast_moves["bubble"],
         charged_moves=(game_data.charged_moves["ice_beam"],),
     )
@@ -129,7 +137,16 @@ def test_pokemon_factories_and_properties():
     assert by_ivs.fast_move == game_data.fast_moves["bubble"]
     assert len(by_ivs.charged_moves) == 1
 
+    # Master League Best Buddy
+    ml_dragonite = Pokemon(dragonite, cp_cap=None, max_level=51.0)
+    assert ml_dragonite.ivs == IVs(15, 15, 15)
+    assert ml_dragonite.level == 51.0
+    assert ml_dragonite.cp > 2500
+
+    # Specifying both rank and ivs raises ValueError
+    with pytest.raises(ValueError, match="Cannot specify both 'rank' and 'ivs'"):
+        Pokemon(azumarill, rank=1, ivs=IVs(0, 15, 15))
+
     # Ineligible CP cap raises ValueError
-    dragonite = game_data.species["dragonite"]
-    with pytest.raises(ValueError, match="exceeds cp_cap"):
-        Pokemon.from_ivs(dragonite, IVs(15, 15, 15), cp_cap=10)
+    with pytest.raises(ValueError, match="exceeds cp_cap=10"):
+        Pokemon(dragonite, cp_cap=10, ivs=IVs(15, 15, 15))
