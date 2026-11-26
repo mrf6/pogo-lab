@@ -1,0 +1,2158 @@
+{
+  "acid_spray": {
+    "name": "Acid Spray",
+    "type": "poison",
+    "power": 20,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -2,
+      "probability": 1.0
+    }
+  },
+  "acrobatics": {
+    "name": "Acrobatics",
+    "type": "flying",
+    "power": 110,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "aerial_ace": {
+    "name": "Aerial Ace",
+    "type": "flying",
+    "power": 60,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "aeroblast": {
+    "name": "Aeroblast",
+    "type": "flying",
+    "power": 170,
+    "energy_cost": 75,
+    "buff": {
+      "user_attack": 2,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 0.125
+    }
+  },
+  "air_cutter": {
+    "name": "Air Cutter",
+    "type": "flying",
+    "power": 60,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 0.125
+    }
+  },
+  "ancient_power": {
+    "name": "Ancient Power",
+    "type": "rock",
+    "power": 60,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 0.1
+    }
+  },
+  "aqua_jet": {
+    "name": "Aqua Jet",
+    "type": "water",
+    "power": 70,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "aqua_step": {
+    "name": "Aqua Step",
+    "type": "water",
+    "power": 55,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "aqua_tail": {
+    "name": "Aqua Tail",
+    "type": "water",
+    "power": 55,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "aura_sphere": {
+    "name": "Aura Sphere",
+    "type": "fighting",
+    "power": 80,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "aura_wheel_dark": {
+    "name": "Aura Wheel",
+    "type": "dark",
+    "power": 100,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "aura_wheel_electric": {
+    "name": "Aura Wheel",
+    "type": "electric",
+    "power": 100,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "aurora_beam": {
+    "name": "Aurora Beam",
+    "type": "ice",
+    "power": 80,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "avalanche": {
+    "name": "Avalanche",
+    "type": "ice",
+    "power": 90,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "beak_blast": {
+    "name": "Beak Blast",
+    "type": "flying",
+    "power": 110,
+    "energy_cost": 55,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "behemoth_bash": {
+    "name": "Behemoth Bash",
+    "type": "steel",
+    "power": 80,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "behemoth_blade": {
+    "name": "Behemoth Blade",
+    "type": "steel",
+    "power": 100,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "blast_burn": {
+    "name": "Blast Burn",
+    "type": "fire",
+    "power": 110,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "blaze_kick": {
+    "name": "Blaze Kick",
+    "type": "fire",
+    "power": 60,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "bleakwind_storm": {
+    "name": "Bleakwind Storm",
+    "type": "flying",
+    "power": 60,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "blizzard": {
+    "name": "Blizzard",
+    "type": "ice",
+    "power": 140,
+    "energy_cost": 75,
+    "buff": null
+  },
+  "body_slam": {
+    "name": "Body Slam",
+    "type": "normal",
+    "power": 65,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "bone_club": {
+    "name": "Bone Club",
+    "type": "ground",
+    "power": 55,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "boomburst": {
+    "name": "Boomburst",
+    "type": "normal",
+    "power": 150,
+    "energy_cost": 70,
+    "buff": null
+  },
+  "brave_bird": {
+    "name": "Brave Bird",
+    "type": "flying",
+    "power": 130,
+    "energy_cost": 55,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": -3,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "breaking_swipe": {
+    "name": "Breaking Swipe",
+    "type": "dragon",
+    "power": 50,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "brick_break": {
+    "name": "Brick Break",
+    "type": "fighting",
+    "power": 50,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 1.0
+    }
+  },
+  "brine": {
+    "name": "Brine",
+    "type": "water",
+    "power": 100,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "brutal_swing": {
+    "name": "Brutal Swing",
+    "type": "dark",
+    "power": 55,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "bubble_beam": {
+    "name": "Bubble Beam",
+    "type": "water",
+    "power": 50,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "bug_buzz": {
+    "name": "Bug Buzz",
+    "type": "bug",
+    "power": 100,
+    "energy_cost": 60,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.3
+    }
+  },
+  "bulldoze": {
+    "name": "Bulldoze",
+    "type": "ground",
+    "power": 80,
+    "energy_cost": 55,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 1.0
+    }
+  },
+  "chilling_water": {
+    "name": "Chilling Water",
+    "type": "water",
+    "power": 60,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "clanging_scales": {
+    "name": "Clanging Scales",
+    "type": "dragon",
+    "power": 120,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": -1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "close_combat": {
+    "name": "Close Combat",
+    "type": "fighting",
+    "power": 100,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": -2,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "crabhammer": {
+    "name": "Crabhammer",
+    "type": "water",
+    "power": 85,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 2,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 0.125
+    }
+  },
+  "cross_chop": {
+    "name": "Cross Chop",
+    "type": "fighting",
+    "power": 55,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "cross_poison": {
+    "name": "Cross Poison",
+    "type": "poison",
+    "power": 50,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 2,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 0.125
+    }
+  },
+  "crunch": {
+    "name": "Crunch",
+    "type": "dark",
+    "power": 70,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.2
+    }
+  },
+  "crush_grip": {
+    "name": "Crush Grip",
+    "type": "normal",
+    "power": 110,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "dark_pulse": {
+    "name": "Dark Pulse",
+    "type": "dark",
+    "power": 80,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "darkest_lariat": {
+    "name": "Darkest Lariat",
+    "type": "dark",
+    "power": 120,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "dazzling_gleam": {
+    "name": "Dazzling Gleam",
+    "type": "fairy",
+    "power": 90,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "dig": {
+    "name": "Dig",
+    "type": "ground",
+    "power": 70,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "disarming_voice": {
+    "name": "Disarming Voice",
+    "type": "fairy",
+    "power": 70,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "discharge": {
+    "name": "Discharge",
+    "type": "electric",
+    "power": 55,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "dive": {
+    "name": "Dive",
+    "type": "water",
+    "power": 50,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "doom_desire": {
+    "name": "Doom Desire",
+    "type": "steel",
+    "power": 80,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "double_iron_bash": {
+    "name": "Double Iron Bash",
+    "type": "steel",
+    "power": 70,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "draco_meteor": {
+    "name": "Draco Meteor",
+    "type": "dragon",
+    "power": 150,
+    "energy_cost": 65,
+    "buff": {
+      "user_attack": -2,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "dragon_ascent": {
+    "name": "Dragon Ascent",
+    "type": "flying",
+    "power": 110,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": -1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "dragon_claw": {
+    "name": "Dragon Claw",
+    "type": "dragon",
+    "power": 80,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "dragon_energy": {
+    "name": "Dragon Energy",
+    "type": "dragon",
+    "power": 90,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "dragon_pulse": {
+    "name": "Dragon Pulse",
+    "type": "dragon",
+    "power": 90,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "drain_punch": {
+    "name": "Drain Punch",
+    "type": "fighting",
+    "power": 40,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "draining_kiss": {
+    "name": "Draining Kiss",
+    "type": "fairy",
+    "power": 80,
+    "energy_cost": 55,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "drill_peck": {
+    "name": "Drill Peck",
+    "type": "flying",
+    "power": 70,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "drill_run": {
+    "name": "Drill Run",
+    "type": "ground",
+    "power": 70,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "drum_beating": {
+    "name": "Drum Beating",
+    "type": "grass",
+    "power": 60,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "dynamax_cannon": {
+    "name": "Dynamax Cannon",
+    "type": "dragon",
+    "power": 80,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "dynamic_punch": {
+    "name": "Dynamic Punch",
+    "type": "fighting",
+    "power": 90,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "earth_power": {
+    "name": "Earth Power",
+    "type": "ground",
+    "power": 90,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.1
+    }
+  },
+  "earthquake": {
+    "name": "Earthquake",
+    "type": "ground",
+    "power": 120,
+    "energy_cost": 65,
+    "buff": null
+  },
+  "energy_ball": {
+    "name": "Energy Ball",
+    "type": "grass",
+    "power": 80,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.1
+    }
+  },
+  "feather_dance": {
+    "name": "Feather Dance",
+    "type": "flying",
+    "power": 35,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -2,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "fell_stinger": {
+    "name": "Fell Stinger",
+    "type": "bug",
+    "power": 20,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "fire_blast": {
+    "name": "Fire Blast",
+    "type": "fire",
+    "power": 140,
+    "energy_cost": 80,
+    "buff": null
+  },
+  "fire_punch": {
+    "name": "Fire Punch",
+    "type": "fire",
+    "power": 60,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "flame_burst": {
+    "name": "Flame Burst",
+    "type": "fire",
+    "power": 70,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "flame_charge": {
+    "name": "Flame Charge",
+    "type": "fire",
+    "power": 65,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "flame_wheel": {
+    "name": "Flame Wheel",
+    "type": "fire",
+    "power": 80,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "flamethrower": {
+    "name": "Flamethrower",
+    "type": "fire",
+    "power": 90,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "flash_cannon": {
+    "name": "Flash Cannon",
+    "type": "steel",
+    "power": 110,
+    "energy_cost": 65,
+    "buff": null
+  },
+  "flower_trick": {
+    "name": "Flower Trick",
+    "type": "grass",
+    "power": 30,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "fly": {
+    "name": "Fly",
+    "type": "flying",
+    "power": 80,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "flying_press": {
+    "name": "Flying Press",
+    "type": "fighting",
+    "power": 90,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "focus_blast": {
+    "name": "Focus Blast",
+    "type": "fighting",
+    "power": 150,
+    "energy_cost": 75,
+    "buff": null
+  },
+  "foul_play": {
+    "name": "Foul Play",
+    "type": "dark",
+    "power": 65,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "freeze_shock": {
+    "name": "Freeze Shock",
+    "type": "ice",
+    "power": 120,
+    "energy_cost": 60,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 0.3
+    }
+  },
+  "frenzy_plant": {
+    "name": "Frenzy Plant",
+    "type": "grass",
+    "power": 100,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "frustration": {
+    "name": "Frustration",
+    "type": "normal",
+    "power": 10,
+    "energy_cost": 70,
+    "buff": null
+  },
+  "fusion_bolt": {
+    "name": "Fusion Bolt",
+    "type": "electric",
+    "power": 90,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "fusion_flare": {
+    "name": "Fusion Flare",
+    "type": "fire",
+    "power": 90,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "future_sight": {
+    "name": "Future Sight",
+    "type": "psychic",
+    "power": 110,
+    "energy_cost": 65,
+    "buff": null
+  },
+  "giga_impact": {
+    "name": "Giga Impact",
+    "type": "normal",
+    "power": 150,
+    "energy_cost": 80,
+    "buff": null
+  },
+  "gigaton_hammer": {
+    "name": "Gigaton Hammer",
+    "type": "steel",
+    "power": 130,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "glaciate": {
+    "name": "Glaciate",
+    "type": "ice",
+    "power": 60,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "glaive_rush": {
+    "name": "Glaive Rush",
+    "type": "dragon",
+    "power": 90,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": -1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "grass_knot": {
+    "name": "Grass Knot",
+    "type": "grass",
+    "power": 90,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "gunk_shot": {
+    "name": "Gunk Shot",
+    "type": "poison",
+    "power": 130,
+    "energy_cost": 75,
+    "buff": null
+  },
+  "gyro_ball": {
+    "name": "Gyro Ball",
+    "type": "steel",
+    "power": 80,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "heat_wave": {
+    "name": "Heat Wave",
+    "type": "fire",
+    "power": 75,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "heavy_slam": {
+    "name": "Heavy Slam",
+    "type": "steel",
+    "power": 70,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "high_horsepower": {
+    "name": "High Horsepower",
+    "type": "ground",
+    "power": 100,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "high_jump_kick": {
+    "name": "High Jump Kick",
+    "type": "fighting",
+    "power": 110,
+    "energy_cost": 55,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": -4,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 0.1
+    }
+  },
+  "horn_attack": {
+    "name": "Horn Attack",
+    "type": "normal",
+    "power": 40,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "hurricane": {
+    "name": "Hurricane",
+    "type": "flying",
+    "power": 110,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "hydro_cannon": {
+    "name": "Hydro Cannon",
+    "type": "water",
+    "power": 80,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "hydro_pump": {
+    "name": "Hydro Pump",
+    "type": "water",
+    "power": 130,
+    "energy_cost": 75,
+    "buff": null
+  },
+  "hyper_beam": {
+    "name": "Hyper Beam",
+    "type": "normal",
+    "power": 150,
+    "energy_cost": 80,
+    "buff": null
+  },
+  "hyper_fang": {
+    "name": "Hyper Fang",
+    "type": "normal",
+    "power": 80,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "ice_beam": {
+    "name": "Ice Beam",
+    "type": "ice",
+    "power": 90,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "ice_burn": {
+    "name": "Ice Burn",
+    "type": "ice",
+    "power": 120,
+    "energy_cost": 60,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.3
+    }
+  },
+  "ice_punch": {
+    "name": "Ice Punch",
+    "type": "ice",
+    "power": 60,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "icicle_spear": {
+    "name": "Icicle Spear",
+    "type": "ice",
+    "power": 70,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "icy_wind": {
+    "name": "Icy Wind",
+    "type": "ice",
+    "power": 60,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "iron_head": {
+    "name": "Iron Head",
+    "type": "steel",
+    "power": 85,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "kowtow_cleave": {
+    "name": "Kowtow Cleave",
+    "type": "dark",
+    "power": 75,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "last_resort": {
+    "name": "Last Resort",
+    "type": "normal",
+    "power": 90,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "leaf_blade": {
+    "name": "Leaf Blade",
+    "type": "grass",
+    "power": 70,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "leaf_storm": {
+    "name": "Leaf Storm",
+    "type": "grass",
+    "power": 130,
+    "energy_cost": 55,
+    "buff": {
+      "user_attack": -2,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "leaf_tornado": {
+    "name": "Leaf Tornado",
+    "type": "grass",
+    "power": 45,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -2,
+      "opponent_defense": 0,
+      "probability": 0.5
+    }
+  },
+  "liquidation": {
+    "name": "Liquidation",
+    "type": "water",
+    "power": 70,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.3
+    }
+  },
+  "low_sweep": {
+    "name": "Low Sweep",
+    "type": "fighting",
+    "power": 40,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "lunge": {
+    "name": "Lunge",
+    "type": "bug",
+    "power": 70,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "luster_purge": {
+    "name": "Luster Purge",
+    "type": "psychic",
+    "power": 120,
+    "energy_cost": 60,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.5
+    }
+  },
+  "magma_storm": {
+    "name": "Magma Storm",
+    "type": "fire",
+    "power": 65,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "magnet_bomb": {
+    "name": "Magnet Bomb",
+    "type": "steel",
+    "power": 70,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "megahorn": {
+    "name": "Megahorn",
+    "type": "bug",
+    "power": 110,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "meteor_beam": {
+    "name": "Meteor Beam",
+    "type": "rock",
+    "power": 120,
+    "energy_cost": 60,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "meteor_mash": {
+    "name": "Meteor Mash",
+    "type": "steel",
+    "power": 100,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "mind_blown": {
+    "name": "Mind Blown",
+    "type": "fire",
+    "power": 90,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": -4,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "mirror_coat": {
+    "name": "Mirror Coat",
+    "type": "psychic",
+    "power": 75,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "mirror_shot": {
+    "name": "Mirror Shot",
+    "type": "steel",
+    "power": 35,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 0.3
+    }
+  },
+  "mist_ball": {
+    "name": "Mist Ball",
+    "type": "psychic",
+    "power": 120,
+    "energy_cost": 60,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 0.5
+    }
+  },
+  "moonblast": {
+    "name": "Moonblast",
+    "type": "fairy",
+    "power": 90,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 0.1
+    }
+  },
+  "moongeist_beam": {
+    "name": "Moongeist Beam",
+    "type": "ghost",
+    "power": 135,
+    "energy_cost": 65,
+    "buff": null
+  },
+  "mud_bomb": {
+    "name": "Mud Bomb",
+    "type": "ground",
+    "power": 65,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "muddy_water": {
+    "name": "Muddy Water",
+    "type": "water",
+    "power": 35,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 0.3
+    }
+  },
+  "mystical_fire": {
+    "name": "Mystical Fire",
+    "type": "fire",
+    "power": 60,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "natures_madness": {
+    "name": "Nature's Madness",
+    "type": "fairy",
+    "power": 80,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 1.0
+    }
+  },
+  "night_shade": {
+    "name": "Night Shade",
+    "type": "ghost",
+    "power": 70,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "night_slash": {
+    "name": "Night Slash",
+    "type": "dark",
+    "power": 50,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 0.125
+    }
+  },
+  "oblivion_wing": {
+    "name": "Oblivion Wing",
+    "type": "flying",
+    "power": 85,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "obstruct": {
+    "name": "Obstruct",
+    "type": "dark",
+    "power": 15,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 1,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 1.0
+    }
+  },
+  "octazooka": {
+    "name": "Octazooka",
+    "type": "water",
+    "power": 50,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -2,
+      "opponent_defense": 0,
+      "probability": 0.5
+    }
+  },
+  "ominous_wind": {
+    "name": "Ominous Wind",
+    "type": "ghost",
+    "power": 45,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 0.1
+    }
+  },
+  "origin_pulse": {
+    "name": "Origin Pulse",
+    "type": "water",
+    "power": 130,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "outrage": {
+    "name": "Outrage",
+    "type": "dragon",
+    "power": 110,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "overheat": {
+    "name": "Overheat",
+    "type": "fire",
+    "power": 130,
+    "energy_cost": 55,
+    "buff": {
+      "user_attack": -2,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "parabolic_charge": {
+    "name": "Parabolic Charge",
+    "type": "electric",
+    "power": 70,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "payback": {
+    "name": "Payback",
+    "type": "dark",
+    "power": 110,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "petal_blizzard": {
+    "name": "Petal Blizzard",
+    "type": "grass",
+    "power": 110,
+    "energy_cost": 65,
+    "buff": null
+  },
+  "plasma_fists": {
+    "name": "Plasma Fists",
+    "type": "electric",
+    "power": 60,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "play_rough": {
+    "name": "Play Rough",
+    "type": "fairy",
+    "power": 90,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "poison_fang": {
+    "name": "Poison Fang",
+    "type": "poison",
+    "power": 50,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 1.0
+    }
+  },
+  "poltergeist": {
+    "name": "Poltergeist",
+    "type": "ghost",
+    "power": 150,
+    "energy_cost": 75,
+    "buff": null
+  },
+  "power_gem": {
+    "name": "Power Gem",
+    "type": "rock",
+    "power": 85,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "power_up_punch": {
+    "name": "Power-Up Punch",
+    "type": "fighting",
+    "power": 20,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "power_whip": {
+    "name": "Power Whip",
+    "type": "grass",
+    "power": 90,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "precipice_blades": {
+    "name": "Precipice Blades",
+    "type": "ground",
+    "power": 130,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "psybeam": {
+    "name": "Psybeam",
+    "type": "psychic",
+    "power": 70,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "psychic": {
+    "name": "Psychic",
+    "type": "psychic",
+    "power": 75,
+    "energy_cost": 55,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.1
+    }
+  },
+  "psychic_fangs": {
+    "name": "Psychic Fangs",
+    "type": "psychic",
+    "power": 40,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 1.0
+    }
+  },
+  "psycho_boost": {
+    "name": "Psycho Boost",
+    "type": "psychic",
+    "power": 85,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": -2,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "psyshock": {
+    "name": "Psyshock",
+    "type": "psychic",
+    "power": 70,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "psystrike": {
+    "name": "Psystrike",
+    "type": "psychic",
+    "power": 90,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "pyro_ball": {
+    "name": "Pyro Ball",
+    "type": "fire",
+    "power": 75,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "rage_fist": {
+    "name": "Rage Fist",
+    "type": "ghost",
+    "power": 55,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "razor_shell": {
+    "name": "Razor Shell",
+    "type": "water",
+    "power": 35,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.5
+    }
+  },
+  "return": {
+    "name": "Return",
+    "type": "normal",
+    "power": 130,
+    "energy_cost": 70,
+    "buff": null
+  },
+  "roar_of_time": {
+    "name": "Roar of Time",
+    "type": "dragon",
+    "power": 150,
+    "energy_cost": 65,
+    "buff": null
+  },
+  "rock_blast": {
+    "name": "Rock Blast",
+    "type": "rock",
+    "power": 50,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "rock_slide": {
+    "name": "Rock Slide",
+    "type": "rock",
+    "power": 75,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "rock_tomb": {
+    "name": "Rock Tomb",
+    "type": "rock",
+    "power": 75,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "rock_wrecker": {
+    "name": "Rock Wrecker",
+    "type": "rock",
+    "power": 110,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "sacred_fire": {
+    "name": "Sacred Fire",
+    "type": "fire",
+    "power": 130,
+    "energy_cost": 65,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 0.5
+    }
+  },
+  "sacred_sword": {
+    "name": "Sacred Sword",
+    "type": "fighting",
+    "power": 60,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "sand_tomb": {
+    "name": "Sand Tomb",
+    "type": "ground",
+    "power": 55,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 1.0
+    }
+  },
+  "sandsear_storm": {
+    "name": "Sandsear Storm",
+    "type": "ground",
+    "power": 60,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "scald": {
+    "name": "Scald",
+    "type": "water",
+    "power": 85,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 0.3
+    }
+  },
+  "scorching_sands": {
+    "name": "Scorching Sands",
+    "type": "ground",
+    "power": 80,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 0.1
+    }
+  },
+  "secret_sword": {
+    "name": "Secret Sword",
+    "type": "fighting",
+    "power": 70,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "seed_bomb": {
+    "name": "Seed Bomb",
+    "type": "grass",
+    "power": 55,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "seed_flare": {
+    "name": "Seed Flare",
+    "type": "grass",
+    "power": 130,
+    "energy_cost": 75,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -2,
+      "probability": 0.4
+    }
+  },
+  "shadow_ball": {
+    "name": "Shadow Ball",
+    "type": "ghost",
+    "power": 90,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "shadow_bone": {
+    "name": "Shadow Bone",
+    "type": "ghost",
+    "power": 80,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.2
+    }
+  },
+  "shadow_force": {
+    "name": "Shadow Force",
+    "type": "ghost",
+    "power": 120,
+    "energy_cost": 65,
+    "buff": null
+  },
+  "shadow_punch": {
+    "name": "Shadow Punch",
+    "type": "ghost",
+    "power": 55,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "shadow_sneak": {
+    "name": "Shadow Sneak",
+    "type": "ghost",
+    "power": 75,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "signal_beam": {
+    "name": "Signal Beam",
+    "type": "bug",
+    "power": 75,
+    "energy_cost": 55,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": -1,
+      "probability": 0.2
+    }
+  },
+  "silver_wind": {
+    "name": "Silver Wind",
+    "type": "bug",
+    "power": 75,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 0.1
+    }
+  },
+  "skull_bash": {
+    "name": "Skull Bash",
+    "type": "normal",
+    "power": 130,
+    "energy_cost": 75,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "sky_attack": {
+    "name": "Sky Attack",
+    "type": "flying",
+    "power": 75,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "sludge": {
+    "name": "Sludge",
+    "type": "poison",
+    "power": 70,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "sludge_bomb": {
+    "name": "Sludge Bomb",
+    "type": "poison",
+    "power": 80,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "sludge_wave": {
+    "name": "Sludge Wave",
+    "type": "poison",
+    "power": 110,
+    "energy_cost": 65,
+    "buff": null
+  },
+  "snipe_shot": {
+    "name": "Snipe Shot",
+    "type": "water",
+    "power": 65,
+    "energy_cost": 35,
+    "buff": {
+      "user_attack": 2,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 0.125
+    }
+  },
+  "solar_beam": {
+    "name": "Solar Beam",
+    "type": "grass",
+    "power": 150,
+    "energy_cost": 80,
+    "buff": null
+  },
+  "spacial_rend": {
+    "name": "Spacial Rend",
+    "type": "dragon",
+    "power": 95,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "sparkling_aria": {
+    "name": "Sparkling Aria",
+    "type": "water",
+    "power": 80,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "spirit_shackle": {
+    "name": "Spirit Shackle",
+    "type": "ghost",
+    "power": 50,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.33
+    }
+  },
+  "stomp": {
+    "name": "Stomp",
+    "type": "normal",
+    "power": 55,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "stone_edge": {
+    "name": "Stone Edge",
+    "type": "rock",
+    "power": 100,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "struggle": {
+    "name": "Struggle",
+    "type": "normal",
+    "power": 35,
+    "energy_cost": 100,
+    "buff": null
+  },
+  "submission": {
+    "name": "Submission",
+    "type": "fighting",
+    "power": 60,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "sunsteel_strike": {
+    "name": "Sunsteel Strike",
+    "type": "steel",
+    "power": 135,
+    "energy_cost": 65,
+    "buff": null
+  },
+  "super_power": {
+    "name": "Superpower",
+    "type": "fighting",
+    "power": 85,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": -1,
+      "user_defense": -1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "surf": {
+    "name": "Surf",
+    "type": "water",
+    "power": 75,
+    "energy_cost": 45,
+    "buff": null
+  },
+  "swift": {
+    "name": "Swift",
+    "type": "normal",
+    "power": 55,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "synchronoise": {
+    "name": "Synchronoise",
+    "type": "psychic",
+    "power": 80,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "techno_blast_burn": {
+    "name": "Techno Blast (Burn)",
+    "type": "fire",
+    "power": 120,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "techno_blast_chill": {
+    "name": "Techno Blast (Chill)",
+    "type": "ice",
+    "power": 120,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "techno_blast_douse": {
+    "name": "Techno Blast (Douse)",
+    "type": "water",
+    "power": 120,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "techno_blast_normal": {
+    "name": "Techno Blast (Normal)",
+    "type": "normal",
+    "power": 120,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "techno_blast_shock": {
+    "name": "Techno Blast (Shock)",
+    "type": "electric",
+    "power": 120,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "thunder": {
+    "name": "Thunder",
+    "type": "electric",
+    "power": 100,
+    "energy_cost": 60,
+    "buff": null
+  },
+  "thunder_cage": {
+    "name": "Thunder Cage",
+    "type": "electric",
+    "power": 60,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 1.0
+    }
+  },
+  "thunder_punch": {
+    "name": "Thunder Punch",
+    "type": "electric",
+    "power": 60,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "thunderbolt": {
+    "name": "Thunderbolt",
+    "type": "electric",
+    "power": 90,
+    "energy_cost": 55,
+    "buff": null
+  },
+  "torch_song": {
+    "name": "Torch Song",
+    "type": "fire",
+    "power": 70,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "trailblaze": {
+    "name": "Trailblaze",
+    "type": "grass",
+    "power": 65,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "tri_attack": {
+    "name": "Tri Attack",
+    "type": "normal",
+    "power": 65,
+    "energy_cost": 50,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": -1,
+      "probability": 0.5
+    }
+  },
+  "triple_axel": {
+    "name": "Triple Axel",
+    "type": "ice",
+    "power": 60,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 1,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "twister": {
+    "name": "Twister",
+    "type": "dragon",
+    "power": 70,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "upper_hand": {
+    "name": "Upper Hand",
+    "type": "fighting",
+    "power": 70,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 0.3
+    }
+  },
+  "v_create": {
+    "name": "V-Create",
+    "type": "fire",
+    "power": 95,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": -3,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "vice_grip": {
+    "name": "Vise Grip",
+    "type": "normal",
+    "power": 70,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "volt_tackle": {
+    "name": "Volt Tackle",
+    "type": "electric",
+    "power": 90,
+    "energy_cost": 40,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": -1,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "water_pulse": {
+    "name": "Water Pulse",
+    "type": "water",
+    "power": 80,
+    "energy_cost": 50,
+    "buff": null
+  },
+  "weather_ball_fire": {
+    "name": "Weather Ball (Fire)",
+    "type": "fire",
+    "power": 60,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "weather_ball_ice": {
+    "name": "Weather Ball (Ice)",
+    "type": "ice",
+    "power": 60,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "weather_ball_normal": {
+    "name": "Weather Ball (Normal)",
+    "type": "normal",
+    "power": 60,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "weather_ball_rock": {
+    "name": "Weather Ball (Rock)",
+    "type": "rock",
+    "power": 60,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "weather_ball_water": {
+    "name": "Weather Ball (Water)",
+    "type": "water",
+    "power": 60,
+    "energy_cost": 35,
+    "buff": null
+  },
+  "wild_charge": {
+    "name": "Wild Charge",
+    "type": "electric",
+    "power": 100,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": -2,
+      "opponent_attack": 0,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "wildbolt_storm": {
+    "name": "Wildbolt Storm",
+    "type": "electric",
+    "power": 60,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 1.0
+    }
+  },
+  "wrap": {
+    "name": "Wrap",
+    "type": "normal",
+    "power": 70,
+    "energy_cost": 45,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": 0,
+      "opponent_defense": -1,
+      "probability": 1.0
+    }
+  },
+  "x_scissor": {
+    "name": "X-Scissor",
+    "type": "bug",
+    "power": 65,
+    "energy_cost": 40,
+    "buff": null
+  },
+  "zap_cannon": {
+    "name": "Zap Cannon",
+    "type": "electric",
+    "power": 150,
+    "energy_cost": 80,
+    "buff": {
+      "user_attack": 0,
+      "user_defense": 0,
+      "opponent_attack": -1,
+      "opponent_defense": 0,
+      "probability": 0.33
+    }
+  }
+}
