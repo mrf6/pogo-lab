@@ -31,6 +31,23 @@ Use `uv add <package>` to add a runtime dependency or `uv add --dev <package>`
 for a development dependency. Commit changes to both `pyproject.toml` and
 `uv.lock`. The virtual environment in `.venv/` is local and is not committed.
 
+## Usage
+
+Launch the interactive TUI:
+
+```sh
+uv run pogolab
+```
+
+Keybindings:
+- `1` (or `Enter`) on Home: open Rank Checker
+- `Tab` in Pokémon search: autocomplete the top prefix match
+- `Shift+Tab`: cycle PvP league (Great, Ultra, Master)
+- `Ctrl+B`: toggle Best Buddy max level (Lv 50 / Lv 51)
+- `Ctrl+F`: cycle IV floor preset (Wild, Friend, Raid/Egg, Lucky)
+- `Esc`: dismiss autocomplete or return to Home
+- `Ctrl+C`: quit
+
 ## Roadmap
 
 - Shared Pokémon GO data and stat mechanics
