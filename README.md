@@ -36,7 +36,7 @@ for a development dependency. Commit changes to both `pyproject.toml` and
 Launch the interactive TUI:
 
 ```sh
-uv run pogo-lab
+uv run pogolab
 ```
 
 Keybindings:

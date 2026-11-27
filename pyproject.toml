@@ -9,7 +9,7 @@ dependencies = [
 ]
 
 [project.scripts]
-pogo-lab = "pogo_lab.cli:main"
+pogolab = "pogo_lab.cli:main"
 
 [build-system]
 requires = ["hatchling"]
