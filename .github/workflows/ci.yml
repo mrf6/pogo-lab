@@ -20,4 +20,5 @@ jobs:
       - run: uv run --locked ruff check .
       - run: uv run --locked ruff format --check .
       - run: uv run --locked pytest
+      - run: uv run --locked pogolab --help
       - run: uv run --locked pre-commit run --all-files
