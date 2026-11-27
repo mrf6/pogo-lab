@@ -141,7 +141,10 @@ Screen {
 
 #species-suggestions {
     display: none;
-    max-height: 6;
+    position: absolute;
+    overlay: screen;
+    height: auto;
+    max-height: 8;
     border: round $primary;
     background: $surface;
 }

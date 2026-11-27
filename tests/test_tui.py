@@ -129,14 +129,37 @@ def test_tui_inline_preview_tab_autocomplete_and_lookup():
             assert isinstance(rank_screen, RankScreen)
 
             species_input = rank_screen.query_one("#species-input", Input)
+            lookup_input = rank_screen.query_one("#lookup-input", Input)
+            summary_card = rank_screen.query_one("#summary-card")
+            table = rank_screen.query_one("#rank-table", DataTable)
             suggestions = rank_screen.query_one("#species-suggestions", OptionList)
 
-            # Typing a prefix shows inline suggestion preview and dropdown
+            # Capture layout regions before suggestions open
+            lookup_region_before = lookup_input.region
+            summary_region_before = summary_card.region
+            table_region_before = table.region
+
+            # Typing a prefix shows inline suggestion preview and floating dropdown
             species_input.focus()
             species_input.value = "dragonit"
             await pilot.pause()
             assert suggestions.has_class("-visible")
             assert species_input._suggestion.lower() == "dragonite"
+
+            # Suggestions show Pokémon names only (no types in parentheses)
+            option_labels = [
+                str(suggestions.get_option_at_index(i).prompt)
+                for i in range(suggestions.option_count)
+            ]
+            assert option_labels == ["Dragonite"]
+
+            # Dropdown overlays existing UI without resizing or shifting elements
+            assert lookup_input.region == lookup_region_before
+            assert summary_card.region == summary_region_before
+            assert table.region == table_region_before
+            assert suggestions.region.x == species_input.region.x
+            assert suggestions.region.y == species_input.region.bottom
+            assert suggestions.region.width == species_input.region.width
 
             # Pressing Tab completes the top prefix match in-place and populates table
             await pilot.press("tab")
@@ -144,11 +167,9 @@ def test_tui_inline_preview_tab_autocomplete_and_lookup():
             assert rank_screen.selected_species_id == "dragonite"
             assert species_input.value == "Dragonite"
             assert not suggestions.has_class("-visible")
-            table = rank_screen.query_one("#rank-table", DataTable)
             assert table.row_count == 100
 
             # Lookup specific IV spread and toggle Best Buddy / IV floor
-            lookup_input = rank_screen.query_one("#lookup-input", Input)
             lookup_input.value = "0/15/15"
             await pilot.pause()
 

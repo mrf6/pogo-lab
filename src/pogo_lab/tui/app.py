@@ -173,7 +173,6 @@ class RankScreen(Screen[None]):
                     suggester=SpeciesSuggester(self.game_data.species),
                     id="species-input",
                 )
-                yield OptionList(id="species-suggestions")
 
                 yield Static(
                     "IVs or Rank (e.g. 0/15/15 or #1)",
@@ -185,6 +184,7 @@ class RankScreen(Screen[None]):
             yield Static(id="summary-card")
 
         yield DataTable(id="rank-table", cursor_type="row", zebra_stripes=True)
+        yield OptionList(id="species-suggestions")
         yield Footer()
 
     def on_mount(self) -> None:
@@ -249,6 +249,18 @@ class RankScreen(Screen[None]):
             species_input.value = text
             species_input.cursor_position = len(text)
 
+    def _position_suggestions(self) -> None:
+        species_input = self.query_one("#species-input", Input)
+        suggestions = self.query_one("#species-suggestions", OptionList)
+        region = species_input.region
+        suggestions.styles.offset = (region.x, region.bottom)
+        suggestions.styles.width = region.width
+
+    def on_resize(self) -> None:
+        suggestions = self.query_one("#species-suggestions", OptionList)
+        if suggestions.has_class("-visible"):
+            self.call_after_refresh(self._position_suggestions)
+
     def _hide_suggestions(self) -> None:
         suggestions = self.query_one("#species-suggestions", OptionList)
         suggestions.remove_class("-visible")
@@ -279,9 +291,9 @@ class RankScreen(Screen[None]):
             return
 
         for sp in matches:
-            types_text = "/".join(t.value.title() for t in sp.types)
-            suggestions.add_option(Option(f"{sp.name}  ({types_text})", id=sp.id))
+            suggestions.add_option(Option(sp.name, id=sp.id))
 
+        self._position_suggestions()
         suggestions.add_class("-visible")
 
         first = matches[0]
