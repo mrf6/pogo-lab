@@ -1,7 +1,7 @@
 """Pokémon GO simulations and rankings."""
 
-from pogo_lab.data import GameData, IVs, Species, Type, load_game_data
-from pogo_lab.pokemon import Pokemon
+from pogolab.data import GameData, IVs, Species, Type, load_game_data
+from pogolab.pokemon import Pokemon
 
 __all__ = [
     "GameData",

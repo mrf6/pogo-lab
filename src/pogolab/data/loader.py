@@ -7,7 +7,7 @@ from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
-from pogo_lab.data.classes import (
+from pogolab.data.classes import (
     BaseStats,
     ChargedMove,
     FastMove,

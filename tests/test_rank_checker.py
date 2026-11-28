@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import pytest
 
-from pogo_lab import IVs, Pokemon, load_game_data
-from pogo_lab.data import BaseStats
-from pogo_lab.rank_checker import (
+from pogolab import IVs, Pokemon, load_game_data
+from pogolab.data import BaseStats
+from pogolab.rank_checker import (
     CP_MULTIPLIERS,
     calculate_cp,
     calculate_stats,

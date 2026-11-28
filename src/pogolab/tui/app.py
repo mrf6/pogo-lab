@@ -1,4 +1,4 @@
-"""Textual TUI application for pogo-lab."""
+"""Textual TUI application for pogolab."""
 
 from __future__ import annotations
 
@@ -14,18 +14,22 @@ from textual.screen import Screen
 from textual.suggester import Suggester
 from textual.widgets import DataTable, Footer, Input, OptionList, Static
 from textual.widgets.option_list import Option
+from textual_image.widget import Image as TerminalImage
 
-from pogo_lab.data import GameData, IVs, Species, load_game_data
-from pogo_lab.rank_checker import RankedSpread, rank_species
-from pogo_lab.tui.helpers import (
+from pogolab.data import GameData, IVs, Species, load_game_data
+from pogolab.rank_checker import RankedSpread, rank_species
+from pogolab.tui.battle_screen import BattleScreen
+from pogolab.tui.helpers import (
     IV_FLOORS,
     LEAGUES,
     TYPE_COLORS,
     format_ivs,
     format_level,
     parse_lookup,
+    rank_color,
     search_species,
 )
+from pogolab.tui.sprites import SpriteData, load_sprites, sprite_to_pil
 
 MAX_TABLE_ROWS = 100
 
@@ -65,6 +69,7 @@ class HomeScreen(Screen[None]):
 
     BINDINGS = [
         Binding("1", "open_rank_checker", "IV Rank Checker"),
+        Binding("2", "open_battle_sim", "Battle Sim"),
         Binding("up", "move_up", "Up", show=False),
         Binding("down", "move_down", "Down", show=False),
         Binding("enter", "activate_selected", "Open", show=False),
@@ -88,9 +93,9 @@ class HomeScreen(Screen[None]):
                         classes="menu-item -selected",
                     )
                     yield Static(
-                        "  2.  Battle Sim (WIP)",
+                        "  2.  Battle Sim",
                         id="menu-battle",
-                        classes="menu-item -disabled",
+                        classes="menu-item",
                     )
             yield Static("Navigate with ↑/↓", id="home-hint")
         yield Footer()
@@ -105,9 +110,7 @@ class HomeScreen(Screen[None]):
         rank_item.update(
             "▶ 1.  IV Rank Checker" if selected_index == 0 else "  1.  IV Rank Checker"
         )
-        battle_item.update(
-            "▶ 2.  Battle Sim (WIP)" if selected_index == 1 else "  2.  Battle Sim (WIP)"
-        )
+        battle_item.update("▶ 2.  Battle Sim" if selected_index == 1 else "  2.  Battle Sim")
 
     def action_move_up(self) -> None:
         self.selected_index = (self.selected_index - 1) % 2
@@ -118,16 +121,28 @@ class HomeScreen(Screen[None]):
     def action_activate_selected(self) -> None:
         if self.selected_index == 0:
             self.action_open_rank_checker()
+        elif self.selected_index == 1:
+            self.action_open_battle_sim()
 
     def action_open_rank_checker(self) -> None:
         app = self.app
         assert isinstance(app, PogoLabApp)
         app.push_screen(RankScreen(app.game_data))
 
+    def action_open_battle_sim(self) -> None:
+        app = self.app
+        assert isinstance(app, PogoLabApp)
+        app.push_screen(BattleScreen(app.game_data))
+
     def on_click(self, event: events.Click) -> None:
-        if event.widget is not None and event.widget.id == "menu-rank":
+        if event.widget is None:
+            return
+        if event.widget.id == "menu-rank":
             self.selected_index = 0
             self.action_open_rank_checker()
+        elif event.widget.id == "menu-battle":
+            self.selected_index = 1
+            self.action_open_battle_sim()
 
 
 class RankScreen(Screen[None]):
@@ -149,6 +164,7 @@ class RankScreen(Screen[None]):
     def __init__(self, game_data: GameData) -> None:
         super().__init__()
         self.game_data = game_data
+        self._sprites: dict[str, SpriteData] = load_sprites()
         self._current_matches: list[Species] = []
 
     @property
@@ -175,15 +191,17 @@ class RankScreen(Screen[None]):
                 )
 
                 yield Static(
-                    "IVs or Rank (e.g. 0/15/15 or #1)",
+                    "IVs or Rank (e.g. 0/15/15 or 123)",
                     id="lookup-label",
                     classes="field-label",
                 )
-                yield Input(placeholder="0/15/15 or #1", id="lookup-input")
+                yield Input(placeholder="0/15/15 or 123", id="lookup-input")
 
-            yield Static(id="summary-card")
+            with Horizontal(id="summary-card"):
+                yield Static(id="summary-text")
+                yield TerminalImage(id="summary-sprite")
 
-        yield DataTable(id="rank-table", cursor_type="row", zebra_stripes=True)
+        yield DataTable(id="rank-table", cursor_type="row", zebra_stripes=True, cell_padding=2)
         yield OptionList(id="species-suggestions")
         yield Footer()
 
@@ -363,20 +381,23 @@ class RankScreen(Screen[None]):
         league = LEAGUES[self.league_index]
         iv_floor = IV_FLOORS[self.iv_floor_index]
         max_level = 51.0 if self.best_buddy else 50.0
-        bb_tag = "Lv 51 (Best Buddy)" if self.best_buddy else "Lv 50"
+        level_cap_tag = "51.0" if self.best_buddy else "50.0"
 
-        summary = self.query_one("#summary-card", Static)
+        summary = self.query_one("#summary-text", Static)
+        sprite_view = self.query_one("#summary-sprite", TerminalImage)
         table = self.query_one("#rank-table", DataTable)
 
         if species is None:
             summary.update(
                 "[bold]No Pokémon selected[/bold]\n"
                 f"[dim]League:[/dim] [bold {league.color}]{league.name}[/]   "
-                f"[dim]Cap:[/dim] {bb_tag}   "
+                f"[dim]Level Cap:[/dim] {level_cap_tag}\n"
                 f"[dim]IV Floor:[/dim] {iv_floor.label}\n\n"
                 "[dim]Type a Pokémon name on the left and press Tab or Enter "
                 "to inspect base stats and PvP IV rankings.[/dim]"
             )
+            sprite_view.image = None
+            sprite_view.remove_class("-visible")
             table.clear()
             return
 
@@ -393,48 +414,72 @@ class RankScreen(Screen[None]):
             try:
                 parsed = parse_lookup(self.lookup_query)
                 if isinstance(parsed, IVs):
-                    matched_spread = rank_table.by_ivs(parsed)
+                    if min(parsed.attack, parsed.defense, parsed.hp) < iv_floor.floor:
+                        lookup_error = "IVs cannot be less than IV floor"
+                    else:
+                        try:
+                            matched_spread = rank_table.by_ivs(parsed)
+                        except ValueError:
+                            lookup_error = "IVs are not eligible for this league"
                 elif isinstance(parsed, int):
-                    matched_spread = rank_table.by_rank(parsed)
+                    if len(rank_table) == 0:
+                        lookup_error = "No eligible IV spreads for this league"
+                    elif not 1 <= parsed <= len(rank_table):
+                        lookup_error = f"Rank must be between 1 and {len(rank_table)}"
+                    else:
+                        matched_spread = rank_table.by_rank(parsed)
             except ValueError as exc:
-                lookup_error = str(exc)
+                if str(exc) == "Rank must be >= 1" and len(rank_table) > 0:
+                    lookup_error = f"Rank must be between 1 and {len(rank_table)}"
+                else:
+                    lookup_error = str(exc)
 
         stats = species.base_stats
-        header_line = (
-            f"[bold]{escape(species.name)}[/bold]  {self._format_type_badges(species)}    "
-            f"[dim]Base:[/dim] {stats.attack} Atk / {stats.defense} Def / {stats.hp} HP"
+        header_line = f"[bold]{escape(species.name)}[/bold]  {self._format_type_badges(species)}"
+        base_stats_line = (
+            f"[dim]Base Stats:[/dim] {stats.attack} Atk / {stats.defense} Def / {stats.hp} HP"
         )
-        constraint_line = (
+        league_line = (
             f"[dim]League:[/dim] [bold {league.color}]{league.name}[/]   "
-            f"[dim]Cap:[/dim] {bb_tag}   "
-            f"[dim]IV Floor:[/dim] {iv_floor.label}   "
-            f"[dim]Eligible:[/dim] {len(rank_table):,}"
+            f"[dim]Level Cap:[/dim] {level_cap_tag}"
+        )
+        floor_line = (
+            f"[dim]IV Floor:[/dim] {iv_floor.label}   [dim]Eligible:[/dim] {len(rank_table):,}"
         )
 
         if lookup_error:
-            detail_line = f"[bold red]Lookup:[/bold red] {escape(lookup_error)}"
+            detail_line = f"[bold red]Error:[/bold red] {escape(lookup_error)}"
         elif matched_spread is not None:
+            color = rank_color(matched_spread.rank, len(rank_table))
             detail_line = (
-                f"[bold green]Match:[/bold green] "
-                f"Rank [bold]#{matched_spread.rank}[/bold]  •  "
-                f"IVs [bold]{format_ivs(matched_spread.ivs)}[/bold]  •  "
+                f"[dim]Rank[/dim] [bold {color}]{matched_spread.rank}[/]  •  "
+                f"[bold]{format_ivs(matched_spread.ivs)}[/bold]  •  "
                 f"Lv {format_level(matched_spread.level)}  •  "
-                f"[bold]{matched_spread.cp} CP[/bold]  •  "
-                f"{matched_spread.stat_product_pct:.2f}% max"
+                f"[bold]{matched_spread.cp} CP[/bold]"
             )
         elif len(rank_table) > 0:
             top = rank_table.by_rank(1)
+            color = rank_color(top.rank, len(rank_table))
             detail_line = (
-                f"[dim]Rank #1:[/dim] "
+                f"[dim]Rank[/dim] [bold {color}]{top.rank}[/]  •  "
                 f"[bold]{format_ivs(top.ivs)}[/bold]  •  "
                 f"Lv {format_level(top.level)}  •  "
-                f"[bold]{top.cp} CP[/bold]  •  "
-                f"Stat Prod {top.stat_product:,.0f}"
+                f"[bold]{top.cp} CP[/bold]"
             )
         else:
             detail_line = "[yellow]No eligible IV spreads for this league and IV floor.[/yellow]"
 
-        summary.update(f"{header_line}\n{constraint_line}\n{detail_line}")
+        summary.update(
+            f"{header_line}\n{base_stats_line}\n{league_line}\n{floor_line}\n{detail_line}"
+        )
+
+        sprite_data = self._sprites.get(species.id)
+        if sprite_data is not None:
+            sprite_view.image = sprite_to_pil(sprite_data)
+            sprite_view.add_class("-visible")
+        else:
+            sprite_view.image = None
+            sprite_view.remove_class("-visible")
 
         table.clear()
 
@@ -458,7 +503,7 @@ class RankScreen(Screen[None]):
 class PogoLabApp(App[None]):
     """Interactive terminal UI for Pokémon GO PvP IV rankings and future simulations."""
 
-    TITLE = "pogo-lab"
+    TITLE = "pogolab"
     SUB_TITLE = "Pokémon GO PvP Lab"
     CSS_PATH = "styles.tcss"
     ENABLE_COMMAND_PALETTE = False
@@ -476,5 +521,5 @@ class PogoLabApp(App[None]):
 
 
 def run_tui() -> None:
-    """Launch the pogo-lab Textual TUI."""
+    """Launch the pogolab Textual TUI."""
     PogoLabApp().run()

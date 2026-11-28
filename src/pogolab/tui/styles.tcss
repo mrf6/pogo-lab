@@ -1,0 +1,373 @@
+Screen {
+    background: $background;
+}
+
+/* Home Screen */
+#home-container {
+    width: 100%;
+    height: 1fr;
+    align: center middle;
+    content-align: center middle;
+    padding: 2;
+}
+
+#home-logo {
+    width: auto;
+    color: $primary;
+    text-style: bold;
+    margin-bottom: 1;
+}
+
+#home-subtitle {
+    width: 100%;
+    text-align: center;
+    color: $text-muted;
+    margin-bottom: 2;
+}
+
+#home-menu {
+    width: 36;
+    height: auto;
+    border: round $primary-background;
+    background: $surface;
+    padding: 1 2;
+}
+
+.menu-item {
+    width: 100%;
+    padding: 1 2;
+    margin-bottom: 1;
+    background: $panel;
+    color: $text;
+    text-style: bold;
+}
+
+.menu-item.-selected {
+    background: $primary;
+    color: $text;
+}
+
+.menu-item:hover {
+    background: $primary;
+}
+
+.menu-item.-disabled {
+    color: $text-muted;
+    text-style: dim;
+    margin-bottom: 0;
+}
+
+.menu-item.-disabled.-selected {
+    background: $boost;
+    color: $text-muted;
+}
+
+.menu-item.-disabled:hover {
+    background: $panel;
+}
+
+#home-hint {
+    width: 100%;
+    text-align: center;
+    color: $text-muted;
+    margin-top: 1;
+}
+
+/* Rank Checker Screen */
+#league-bar {
+    height: auto;
+    padding: 1 1 0 1;
+    align-vertical: middle;
+}
+
+.league-pill {
+    width: auto;
+    padding: 0 2;
+    margin-right: 1;
+    background: $surface;
+}
+
+.league-great {
+    color: #3B82F6;
+}
+
+.league-great.-active {
+    background: #3B82F6;
+    color: #FFFFFF;
+    text-style: bold;
+}
+
+.league-ultra {
+    color: #EAB308;
+}
+
+.league-ultra.-active {
+    background: #EAB308;
+    color: #000000;
+    text-style: bold;
+}
+
+.league-master {
+    color: #A855F7;
+}
+
+.league-master.-active {
+    background: #A855F7;
+    color: #FFFFFF;
+    text-style: bold;
+}
+
+#top-panel {
+    height: auto;
+    min-height: 11;
+    padding: 1 1 0 1;
+}
+
+#inputs-column {
+    width: 30%;
+    min-width: 28;
+    max-width: 44;
+    height: auto;
+    margin-right: 1;
+}
+
+.field-label {
+    color: $text-muted;
+    margin-bottom: 0;
+}
+
+#lookup-label {
+    margin-top: 1;
+}
+
+#species-suggestions {
+    display: none;
+    position: absolute;
+    overlay: screen;
+    height: auto;
+    max-height: 8;
+    border: round $primary;
+    background: $surface;
+}
+
+#species-suggestions.-visible {
+    display: block;
+}
+
+#summary-card {
+    width: 1fr;
+    height: 100%;
+    padding: 0 2;
+    background: $surface;
+    border: round $primary-background;
+    align-vertical: middle;
+}
+
+#summary-text {
+    width: 1fr;
+    height: auto;
+    padding: 1 0;
+}
+
+#summary-sprite {
+    display: none;
+    width: auto;
+    height: 8;
+    margin-left: 2;
+}
+
+#summary-sprite.-visible {
+    display: block;
+}
+
+#rank-table {
+    height: 1fr;
+    margin: 1;
+    border: round $primary-background;
+}
+
+/* Battle Sim Screen */
+#battle-header {
+    height: 3;
+    padding: 0 2;
+    background: $surface;
+    border-bottom: solid $primary-background;
+    align-vertical: middle;
+}
+
+#battle-clock {
+    width: 1fr;
+    height: auto;
+}
+
+#battle-status {
+    width: auto;
+    height: auto;
+    text-align: right;
+}
+
+#battle-arena {
+    width: 100%;
+    height: 1fr;
+    padding: 1 1 0 1;
+}
+
+.player-panel {
+    width: 1fr;
+    height: 100%;
+    padding: 0 1;
+}
+
+.moves-column {
+    width: 24;
+    height: 100%;
+    padding: 0 1 0 0;
+}
+
+#p1-moves {
+    padding: 0 0 0 1;
+}
+
+.move-box {
+    width: 100%;
+    height: auto;
+    min-height: 5;
+    padding: 0 1;
+    margin-bottom: 1;
+    background: $surface;
+    border: round $panel;
+}
+
+.fast-move-box {
+    height: 5;
+    padding: 0;
+}
+
+.fast-move-box.-charging-move {
+    border: round $primary;
+}
+
+.fast-move-box.-impact-move {
+    border: heavy #FACC15;
+}
+
+.charged-move-box.-active-move {
+    border: heavy #FACC15;
+    background: $boost;
+}
+
+.pokemon-side {
+    width: 1fr;
+    height: 100%;
+}
+
+.active-card {
+    width: 100%;
+    height: 1fr;
+    padding: 1 2;
+    background: $surface;
+    border: round $primary-background;
+}
+
+.active-header {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 1;
+}
+
+.active-hp {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.active-meta {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-bottom: 1;
+}
+
+.active-sprite-wrap {
+    width: 100%;
+    height: 1fr;
+    align: center middle;
+}
+
+.active-sprite {
+    width: auto;
+    height: 9;
+}
+
+.bench-row {
+    width: 100%;
+    height: 8;
+    margin-top: 1;
+    padding: 0 1;
+    background: $surface;
+    border: round $panel;
+    align: center middle;
+}
+
+.bench-slot {
+    width: 1fr;
+    height: 100%;
+    padding: 0 1;
+    border-right: solid $panel;
+    align: center middle;
+}
+
+.bench-sprite-wrap {
+    width: 100%;
+    height: 4;
+    align: center middle;
+}
+
+.bench-sprite {
+    width: auto;
+    height: 4;
+}
+
+.bench-hp {
+    width: 100%;
+    height: 1;
+    text-align: center;
+}
+
+.switch-timer {
+    width: 12;
+    height: 100%;
+    padding: 0 1;
+    content-align: center middle;
+    text-align: center;
+}
+
+#battle-log-panel {
+    display: none;
+    height: 11;
+    margin: 0 1 1 1;
+    padding: 0 1;
+    background: $surface;
+    border: round $primary-background;
+}
+
+#battle-log-panel.-visible {
+    display: block;
+}
+
+#battle-log-title {
+    width: 100%;
+    height: 1;
+    margin-bottom: 0;
+}
+
+#battle-log-scroll {
+    width: 100%;
+    height: 1fr;
+}
+
+#battle-log-content {
+    width: 100%;
+    height: auto;
+}

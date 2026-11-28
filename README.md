@@ -6,7 +6,7 @@ reinforcement learning and large-scale raid simulations.
 
 ## Development
 
-Prerequisites: [uv](https://docs.astral.sh/uv/) and Python 3.11 or newer. uv can
+Prerequisites: [uv](https://docs.astral.sh/uv/) and Python 3.12 or newer. uv can
 install Python if a compatible interpreter is not already available.
 
 ```sh
@@ -53,3 +53,16 @@ Keybindings:
 - Shared Pokémon GO data and stat mechanics
 - PvP IV rankings and battle simulation
 - Reinforcement learning experiments and raid simulation
+
+## Acknowledgments
+
+Special thanks to the open-source projects and communities that inspired the development of `pogo-lab`:
+
+- [PvPoke](https://github.com/pvpoke/pvpoke) — a driving force in the Pokémon GO Battle League community and the primary inspiration for this project, as well as a foundational reference for Pokémon GO data and PvP battle simulation mechanics.
+- [PokéAPI](https://github.com/PokeAPI/pokeapi) and [PokeAPI/sprites](https://github.com/PokeAPI/sprites) — source of the Pokémon sprite assets used to build `data/sprites.json`.
+
+## License & Disclaimer
+
+The source code in this repository is licensed under the [MIT License](LICENSE).
+
+Pokémon, Pokémon GO, and all related names, game data, and sprite assets in `data/` are excluded from the MIT License and remain copyright © The Pokémon Company, Nintendo, Creatures Inc., GAME FREAK inc., and Scopely Explore (formerly Niantic). `pogo-lab` is an independent, non-commercial open-source project and is not affiliated with, endorsed by, or sponsored by any of these entities.

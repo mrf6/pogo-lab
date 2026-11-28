@@ -1,23 +1,30 @@
 [project]
-name = "pogo-lab"
+name = "pogolab"
 version = "0.1.0"
 description = "Pokémon GO simulations and rankings"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
+    "pillow>=13.0.0",
     "textual>=8.2.8",
+    "textual-image>=0.14.4",
 ]
 
 [project.scripts]
-pogolab = "pogo_lab.cli:main"
+pogolab = "pogolab.cli:main"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["scikit-build-core>=0.10", "nanobind>=2.0", "ninja"]
+build-backend = "scikit_build_core.build"
+
+[tool.scikit-build]
+wheel.packages = ["src/pogolab"]
+cmake.build-type = "Release"
+build-dir = "build/{wheel_tag}"
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]

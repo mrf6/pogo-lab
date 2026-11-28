@@ -1,4 +1,4 @@
-"""Command-line entry point for pogo-lab."""
+"""Command-line entry point for pogolab."""
 
 from __future__ import annotations
 
@@ -16,11 +16,11 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
-    """Run the pogo-lab CLI / interactive TUI."""
+    """Run the pogolab CLI / interactive TUI."""
     parser = build_parser()
     parser.parse_args(argv)
 
-    from pogo_lab.tui import run_tui
+    from pogolab.tui import run_tui
 
     run_tui()
     return 0

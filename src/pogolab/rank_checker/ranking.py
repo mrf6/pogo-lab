@@ -6,8 +6,8 @@ from collections.abc import Iterator
 from dataclasses import dataclass
 from functools import lru_cache
 
-from pogo_lab.data.classes import BaseStats, IVs, Species
-from pogo_lab.rank_checker.stats import (
+from pogolab.data.classes import BaseStats, IVs, Species
+from pogolab.rank_checker.stats import (
     EffectiveStats,
     calculate_cp,
     calculate_stats,
