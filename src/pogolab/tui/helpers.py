@@ -6,7 +6,7 @@ import re
 from collections.abc import Mapping
 from dataclasses import dataclass
 
-from pogo_lab.data.classes import IVs, Species, Type
+from pogolab.data.classes import IVs, Species, Type
 
 
 @dataclass(frozen=True, slots=True)

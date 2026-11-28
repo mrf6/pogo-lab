@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from pogo_lab import Pokemon
-from pogo_lab.data import (
+from pogolab import Pokemon
+from pogolab.data import (
     IVs,
     Type,
     load_game_data,

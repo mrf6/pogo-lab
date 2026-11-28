@@ -140,7 +140,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pogo-lab"
+name = "pogolab"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

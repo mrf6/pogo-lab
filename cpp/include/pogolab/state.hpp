@@ -3,9 +3,9 @@
 #include <array>
 #include <cstdint>
 
-#include "pogo_lab/types.hpp"
+#include "pogolab/types.hpp"
 
-namespace pogo_lab::battle {
+namespace pogolab::battle {
 
 struct SplitMix64 {
     std::uint64_t state = 0x9e3779b97f4a7c15ULL;
@@ -109,4 +109,4 @@ struct BattleState {
     std::uint64_t rng_state = 0;
 };
 
-}  // namespace pogo_lab::battle
+}  // namespace pogolab::battle

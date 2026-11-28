@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 
-from pogo_lab.battle._core import (
+from pogolab.battle._core import (
     BattleConfig,
     BattleEngine,
     ChargedMoveData,
@@ -14,8 +14,8 @@ from pogo_lab.battle._core import (
     PokemonData,
     TypeChartData,
 )
-from pogo_lab.data.classes import ChargedMove, FastMove, GameData, MoveBuff, Type, TypeChart
-from pogo_lab.pokemon import Pokemon
+from pogolab.data.classes import ChargedMove, FastMove, GameData, MoveBuff, Type, TypeChart
+from pogolab.pokemon import Pokemon
 
 _TYPE_MAP: dict[Type, ElementType] = {
     Type.NORMAL: ElementType.NORMAL,

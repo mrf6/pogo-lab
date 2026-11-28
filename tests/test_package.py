@@ -1,4 +1,4 @@
 def test_package_imports():
-    import pogo_lab
+    import pogolab
 
-    assert pogo_lab.__name__ == "pogo_lab"
+    assert pogolab.__name__ == "pogolab"

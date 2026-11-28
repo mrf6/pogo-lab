@@ -4,11 +4,11 @@
 #include <cstdint>
 #include <vector>
 
-#include "pogo_lab/data.hpp"
-#include "pogo_lab/state.hpp"
-#include "pogo_lab/types.hpp"
+#include "pogolab/data.hpp"
+#include "pogolab/state.hpp"
+#include "pogolab/types.hpp"
 
-namespace pogo_lab::battle {
+namespace pogolab::battle {
 
 class BattleEngine {
 public:
@@ -68,4 +68,4 @@ private:
     void sync_rng_state() noexcept { state_.rng_state = rng_.state; }
 };
 
-}  // namespace pogo_lab::battle
+}  // namespace pogolab::battle

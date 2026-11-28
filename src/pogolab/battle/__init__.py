@@ -1,6 +1,6 @@
 """C++20-backed Pokémon GO PvP battle simulation engine."""
 
-from pogo_lab.battle._core import (
+from pogolab.battle._core import (
     Action,
     BattleConfig,
     BattleEngine,
@@ -18,8 +18,8 @@ from pogo_lab.battle._core import (
     calculate_damage,
     stat_stage_multiplier,
 )
-from pogo_lab.battle.bots import BattleBot, GreedyBot, RandomBot, play_battle
-from pogo_lab.battle.bridge import (
+from pogolab.battle.bots import BattleBot, GreedyBot, RandomBot, play_battle
+from pogolab.battle.bridge import (
     create_engine,
     to_buff_data,
     to_charged_move_data,

@@ -4,9 +4,9 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from pogo_lab.data.classes import ChargedMove, FastMove, IVs, Species
-from pogo_lab.rank_checker.ranking import get_spread_by_rank
-from pogo_lab.rank_checker.stats import (
+from pogolab.data.classes import ChargedMove, FastMove, IVs, Species
+from pogolab.rank_checker.ranking import get_spread_by_rank
+from pogolab.rank_checker.stats import (
     EffectiveStats,
     calculate_cp,
     calculate_stats,

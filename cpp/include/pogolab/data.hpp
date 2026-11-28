@@ -3,9 +3,9 @@
 #include <array>
 #include <cstdint>
 
-#include "pogo_lab/types.hpp"
+#include "pogolab/types.hpp"
 
-namespace pogo_lab::battle {
+namespace pogolab::battle {
 
 struct MoveBuffData {
     int8_t user_attack = 0;
@@ -75,4 +75,4 @@ struct TypeChartData {
     }
 };
 
-}  // namespace pogo_lab::battle
+}  // namespace pogolab::battle

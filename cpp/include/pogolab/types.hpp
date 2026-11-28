@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-namespace pogo_lab::battle {
+namespace pogolab::battle {
 
 inline constexpr int kNumTypes = 18;
 inline constexpr int kMaxTeamSize = 3;
@@ -73,4 +73,4 @@ struct BattleConfig {
     int max_energy = 100;
 };
 
-}  // namespace pogo_lab::battle
+}  // namespace pogolab::battle

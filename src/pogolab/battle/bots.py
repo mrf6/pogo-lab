@@ -5,7 +5,7 @@ from __future__ import annotations
 import random
 from typing import Protocol
 
-from pogo_lab.battle._core import Action, BattleEngine, Phase, Winner
+from pogolab.battle._core import Action, BattleEngine, Phase, Winner
 
 
 class BattleBot(Protocol):

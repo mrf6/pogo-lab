@@ -5,7 +5,7 @@ from __future__ import annotations
 import math
 from dataclasses import dataclass
 
-from pogo_lab.data.classes import BaseStats, IVs
+from pogolab.data.classes import BaseStats, IVs
 
 # Official Pokémon GO CP Multipliers for levels 1.0 through 51.0 (0.5 increments)
 _CPM_VALUES: tuple[float, ...] = (

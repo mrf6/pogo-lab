@@ -1,9 +1,9 @@
-#include "pogo_lab/mechanics.hpp"
+#include "pogolab/mechanics.hpp"
 
 #include <algorithm>
 #include <cmath>
 
-namespace pogo_lab::battle {
+namespace pogolab::battle {
 
 float stat_stage_multiplier(int stage) noexcept {
     const int clamped = std::clamp(stage, kMinStatStage, kMaxStatStage);
@@ -69,4 +69,4 @@ bool apply_buff(const MoveBuffData& buff,
     return true;
 }
 
-}  // namespace pogo_lab::battle
+}  // namespace pogolab::battle

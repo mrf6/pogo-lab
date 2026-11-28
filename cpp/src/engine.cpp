@@ -1,12 +1,12 @@
-#include "pogo_lab/engine.hpp"
+#include "pogolab/engine.hpp"
 
 #include <algorithm>
 #include <cmath>
 #include <stdexcept>
 
-#include "pogo_lab/mechanics.hpp"
+#include "pogolab/mechanics.hpp"
 
-namespace pogo_lab::battle {
+namespace pogolab::battle {
 
 namespace {
 
@@ -663,4 +663,4 @@ BattleState BattleEngine::blind_state(int player) const noexcept {
     return copy;
 }
 
-}  // namespace pogo_lab::battle
+}  // namespace pogolab::battle

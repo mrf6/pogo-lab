@@ -1,4 +1,4 @@
-"""Unit and headless Textual Pilot tests for the pogo-lab TUI."""
+"""Unit and headless Textual Pilot tests for the pogolab TUI."""
 
 from __future__ import annotations
 
@@ -7,10 +7,10 @@ import asyncio
 import pytest
 from textual.widgets import DataTable, Input, OptionList
 
-from pogo_lab import IVs, load_game_data
-from pogo_lab.tui import PogoLabApp
-from pogo_lab.tui.app import HomeScreen, RankScreen
-from pogo_lab.tui.helpers import LEAGUES, parse_lookup, search_species
+from pogolab import IVs, load_game_data
+from pogolab.tui import PogoLabApp
+from pogolab.tui.app import HomeScreen, RankScreen
+from pogolab.tui.helpers import LEAGUES, parse_lookup, search_species
 
 
 def test_search_species_prefix_only():

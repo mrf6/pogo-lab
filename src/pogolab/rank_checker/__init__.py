@@ -1,13 +1,13 @@
 """PvP IV stat calculation and rank checking."""
 
-from pogo_lab.rank_checker.ranking import (
+from pogolab.rank_checker.ranking import (
     RankedSpread,
     RankTable,
     get_rank_by_ivs,
     get_spread_by_rank,
     rank_species,
 )
-from pogo_lab.rank_checker.stats import (
+from pogolab.rank_checker.stats import (
     CP_MULTIPLIERS,
     LEVELS,
     MAX_LEVEL,

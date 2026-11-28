@@ -1,5 +1,5 @@
 [project]
-name = "pogo-lab"
+name = "pogolab"
 version = "0.1.0"
 description = "Pokémon GO simulations and rankings"
 readme = "README.md"
@@ -9,14 +9,14 @@ dependencies = [
 ]
 
 [project.scripts]
-pogolab = "pogo_lab.cli:main"
+pogolab = "pogolab.cli:main"
 
 [build-system]
 requires = ["scikit-build-core>=0.10", "nanobind>=2.0", "ninja"]
 build-backend = "scikit_build_core.build"
 
 [tool.scikit-build]
-wheel.packages = ["src/pogo_lab"]
+wheel.packages = ["src/pogolab"]
 cmake.build-type = "Release"
 build-dir = "build/{wheel_tag}"
 

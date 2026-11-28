@@ -1,4 +1,4 @@
-"""Textual TUI application for pogo-lab."""
+"""Textual TUI application for pogolab."""
 
 from __future__ import annotations
 
@@ -15,9 +15,9 @@ from textual.suggester import Suggester
 from textual.widgets import DataTable, Footer, Input, OptionList, Static
 from textual.widgets.option_list import Option
 
-from pogo_lab.data import GameData, IVs, Species, load_game_data
-from pogo_lab.rank_checker import RankedSpread, rank_species
-from pogo_lab.tui.helpers import (
+from pogolab.data import GameData, IVs, Species, load_game_data
+from pogolab.rank_checker import RankedSpread, rank_species
+from pogolab.tui.helpers import (
     IV_FLOORS,
     LEAGUES,
     TYPE_COLORS,
@@ -458,7 +458,7 @@ class RankScreen(Screen[None]):
 class PogoLabApp(App[None]):
     """Interactive terminal UI for Pokémon GO PvP IV rankings and future simulations."""
 
-    TITLE = "pogo-lab"
+    TITLE = "pogolab"
     SUB_TITLE = "Pokémon GO PvP Lab"
     CSS_PATH = "styles.tcss"
     ENABLE_COMMAND_PALETTE = False
@@ -476,5 +476,5 @@ class PogoLabApp(App[None]):
 
 
 def run_tui() -> None:
-    """Launch the pogo-lab Textual TUI."""
+    """Launch the pogolab Textual TUI."""
     PogoLabApp().run()

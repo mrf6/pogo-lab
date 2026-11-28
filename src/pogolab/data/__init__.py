@@ -1,6 +1,6 @@
 """Pokémon GO static game data models and loaders."""
 
-from pogo_lab.data.classes import (
+from pogolab.data.classes import (
     BaseStats,
     ChargedMove,
     FastMove,
@@ -11,7 +11,7 @@ from pogo_lab.data.classes import (
     Type,
     TypeChart,
 )
-from pogo_lab.data.loader import (
+from pogolab.data.loader import (
     DEFAULT_DATA_DIR,
     load_charged_moves,
     load_fast_moves,

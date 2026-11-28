@@ -6,7 +6,7 @@ import math
 
 import pytest
 
-from pogo_lab.battle import (
+from pogolab.battle import (
     Action,
     BattleConfig,
     BattleEngine,
@@ -27,8 +27,8 @@ from pogo_lab.battle import (
     stat_stage_multiplier,
     to_team_data,
 )
-from pogo_lab.data import load_game_data
-from pogo_lab.pokemon import Pokemon
+from pogolab.data import load_game_data
+from pogolab.pokemon import Pokemon
 
 
 def _make_neutral_chart() -> TypeChartData:

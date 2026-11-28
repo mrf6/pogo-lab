@@ -1,9 +1,9 @@
 #pragma once
 
-#include "pogo_lab/data.hpp"
-#include "pogo_lab/state.hpp"
+#include "pogolab/data.hpp"
+#include "pogolab/state.hpp"
 
-namespace pogo_lab::battle {
+namespace pogolab::battle {
 
 // Returns the stat multiplier for a stage in [-4, +4].
 [[nodiscard]] float stat_stage_multiplier(int stage) noexcept;
@@ -31,4 +31,4 @@ bool apply_buff(const MoveBuffData& buff,
                 PokemonState& defender_state,
                 SplitMix64& rng) noexcept;
 
-}  // namespace pogo_lab::battle
+}  // namespace pogolab::battle

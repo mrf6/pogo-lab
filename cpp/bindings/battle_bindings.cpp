@@ -2,14 +2,14 @@
 #include <nanobind/stl/array.h>
 #include <nanobind/stl/vector.h>
 
-#include "pogo_lab/data.hpp"
-#include "pogo_lab/engine.hpp"
-#include "pogo_lab/mechanics.hpp"
-#include "pogo_lab/state.hpp"
-#include "pogo_lab/types.hpp"
+#include "pogolab/data.hpp"
+#include "pogolab/engine.hpp"
+#include "pogolab/mechanics.hpp"
+#include "pogolab/state.hpp"
+#include "pogolab/types.hpp"
 
 namespace nb = nanobind;
-using namespace pogo_lab::battle;
+using namespace pogolab::battle;
 
 NB_MODULE(_core, m) {
     m.doc() = "C++20 Pokemon GO PvP battle simulation engine";
