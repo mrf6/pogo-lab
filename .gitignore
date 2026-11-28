@@ -9,4 +9,7 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+*.so
+*.dylib
+*.pyi
 .DS_Store

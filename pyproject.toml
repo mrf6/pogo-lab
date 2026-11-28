@@ -12,8 +12,13 @@ dependencies = [
 pogolab = "pogo_lab.cli:main"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["scikit-build-core>=0.10", "nanobind>=2.0", "ninja"]
+build-backend = "scikit_build_core.build"
+
+[tool.scikit-build]
+wheel.packages = ["src/pogo_lab"]
+cmake.build-type = "Release"
+build-dir = "build/{wheel_tag}"
 
 [tool.ruff]
 line-length = 100
