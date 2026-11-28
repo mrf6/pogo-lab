@@ -18,6 +18,7 @@ from textual_image.widget import Image as TerminalImage
 
 from pogolab.data import GameData, IVs, Species, load_game_data
 from pogolab.rank_checker import RankedSpread, rank_species
+from pogolab.tui.battle_screen import BattleScreen
 from pogolab.tui.helpers import (
     IV_FLOORS,
     LEAGUES,
@@ -68,6 +69,7 @@ class HomeScreen(Screen[None]):
 
     BINDINGS = [
         Binding("1", "open_rank_checker", "IV Rank Checker"),
+        Binding("2", "open_battle_sim", "Battle Sim"),
         Binding("up", "move_up", "Up", show=False),
         Binding("down", "move_down", "Down", show=False),
         Binding("enter", "activate_selected", "Open", show=False),
@@ -91,9 +93,9 @@ class HomeScreen(Screen[None]):
                         classes="menu-item -selected",
                     )
                     yield Static(
-                        "  2.  Battle Sim (WIP)",
+                        "  2.  Battle Sim",
                         id="menu-battle",
-                        classes="menu-item -disabled",
+                        classes="menu-item",
                     )
             yield Static("Navigate with ↑/↓", id="home-hint")
         yield Footer()
@@ -108,9 +110,7 @@ class HomeScreen(Screen[None]):
         rank_item.update(
             "▶ 1.  IV Rank Checker" if selected_index == 0 else "  1.  IV Rank Checker"
         )
-        battle_item.update(
-            "▶ 2.  Battle Sim (WIP)" if selected_index == 1 else "  2.  Battle Sim (WIP)"
-        )
+        battle_item.update("▶ 2.  Battle Sim" if selected_index == 1 else "  2.  Battle Sim")
 
     def action_move_up(self) -> None:
         self.selected_index = (self.selected_index - 1) % 2
@@ -121,16 +121,28 @@ class HomeScreen(Screen[None]):
     def action_activate_selected(self) -> None:
         if self.selected_index == 0:
             self.action_open_rank_checker()
+        elif self.selected_index == 1:
+            self.action_open_battle_sim()
 
     def action_open_rank_checker(self) -> None:
         app = self.app
         assert isinstance(app, PogoLabApp)
         app.push_screen(RankScreen(app.game_data))
 
+    def action_open_battle_sim(self) -> None:
+        app = self.app
+        assert isinstance(app, PogoLabApp)
+        app.push_screen(BattleScreen(app.game_data))
+
     def on_click(self, event: events.Click) -> None:
-        if event.widget is not None and event.widget.id == "menu-rank":
+        if event.widget is None:
+            return
+        if event.widget.id == "menu-rank":
             self.selected_index = 0
             self.action_open_rank_checker()
+        elif event.widget.id == "menu-battle":
+            self.selected_index = 1
+            self.action_open_battle_sim()
 
 
 class RankScreen(Screen[None]):
