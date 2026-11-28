@@ -6,7 +6,7 @@ reinforcement learning and large-scale raid simulations.
 
 ## Development
 
-Prerequisites: [uv](https://docs.astral.sh/uv/) and Python 3.11 or newer. uv can
+Prerequisites: [uv](https://docs.astral.sh/uv/) and Python 3.12 or newer. uv can
 install Python if a compatible interpreter is not already available.
 
 ```sh

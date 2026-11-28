@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import re
 from collections.abc import Mapping
 from dataclasses import dataclass
 
@@ -42,13 +41,15 @@ class IVFloorPreset:
 
 
 IV_FLOORS: tuple[IVFloorPreset, ...] = (
-    IVFloorPreset(0, "Wild (0)"),
-    IVFloorPreset(1, "Good Friend (1)"),
-    IVFloorPreset(2, "Great Friend (2)"),
-    IVFloorPreset(3, "Ultra Friend (3)"),
-    IVFloorPreset(5, "Best Friend (5)"),
-    IVFloorPreset(10, "Raid / Egg (10)"),
-    IVFloorPreset(12, "Lucky (12)"),
+    IVFloorPreset(0, "0 (Wild Catch)"),
+    IVFloorPreset(1, "1 (Good Friend)"),
+    IVFloorPreset(2, "2 (Great Friend)"),
+    IVFloorPreset(3, "3 (Ultra Friend)"),
+    IVFloorPreset(4, "4 (Weather Boost)"),
+    IVFloorPreset(5, "5 (Best Friend)"),
+    IVFloorPreset(6, "6 (Shadow Raid)"),
+    IVFloorPreset(10, "10 (Raid / Egg)"),
+    IVFloorPreset(12, "12 (Lucky)"),
 )
 
 
@@ -72,9 +73,6 @@ TYPE_COLORS: dict[Type, str] = {
     Type.STEEL: "#B7B7CE",
     Type.FAIRY: "#D685AD",
 }
-
-
-_IV_SPLIT_RE = re.compile(r"[\s/,-]+")
 
 
 def search_species(
@@ -105,7 +103,7 @@ def search_species(
 
 
 def parse_lookup(raw: str) -> IVs | int | None:
-    """Parse an IV spread (e.g. ``0/15/15``) or rank (e.g. ``#1`` or ``1``).
+    """Parse an IV spread (``0/15/15``) or rank (``123``).
 
     Returns ``None`` for empty input and raises ``ValueError`` for invalid formats.
     """
@@ -113,27 +111,42 @@ def parse_lookup(raw: str) -> IVs | int | None:
     if not cleaned:
         return None
 
-    if cleaned.startswith("#"):
-        rank_text = cleaned[1:].strip()
-        if not rank_text.isdigit():
-            raise ValueError(f"Invalid rank: {raw!r}")
-        rank = int(rank_text)
-        if rank < 1:
-            raise ValueError("Rank must be >= 1")
-        return rank
-
     if cleaned.isdigit():
         rank = int(cleaned)
         if rank < 1:
             raise ValueError("Rank must be >= 1")
         return rank
 
-    parts = [part for part in _IV_SPLIT_RE.split(cleaned) if part]
-    if len(parts) == 3 and all(part.isdigit() for part in parts):
-        atk, defn, hp = (int(part) for part in parts)
-        return IVs(attack=atk, defense=defn, hp=hp)
+    if "/" in cleaned:
+        parts = cleaned.split("/")
+        if len(parts) == 3 and all(part.isdigit() for part in parts):
+            atk, defn, hp = (int(part) for part in parts)
+            if not (0 <= atk <= 15 and 0 <= defn <= 15 and 0 <= hp <= 15):
+                raise ValueError("IVs must be between 0 and 15")
+            return IVs(attack=atk, defense=defn, hp=hp)
 
-    raise ValueError("Use IVs like 0/15/15 or rank like #1")
+    raise ValueError("Use IVs (e.g. 0/15/15) or Rank (e.g. 123)")
+
+
+def rank_color(rank: int, total: int) -> str:
+    """Return a hex color scaling smoothly from green -> yellow -> red across ``1..total``."""
+    if total <= 1:
+        t = 0.0
+    else:
+        t = min(1.0, max(0.0, (rank - 1) / (total - 1)))
+
+    # Green (#22C55E) -> Yellow (#EAB308) -> Red (#EF4444)
+    if t <= 0.5:
+        u = t * 2.0
+        r = round(34 + (234 - 34) * u)
+        g = round(197 + (179 - 197) * u)
+        b = round(94 + (8 - 94) * u)
+    else:
+        u = (t - 0.5) * 2.0
+        r = round(234 + (239 - 234) * u)
+        g = round(179 + (68 - 179) * u)
+        b = round(8 + (68 - 8) * u)
+    return f"#{r:02X}{g:02X}{b:02X}"
 
 
 def format_ivs(ivs: IVs) -> str:

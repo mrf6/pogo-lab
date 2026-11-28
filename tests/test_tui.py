@@ -6,11 +6,13 @@ import asyncio
 
 import pytest
 from textual.widgets import DataTable, Input, OptionList
+from textual_image.widget import Image as TerminalImage
 
 from pogolab import IVs, load_game_data
 from pogolab.tui import PogoLabApp
 from pogolab.tui.app import HomeScreen, RankScreen
-from pogolab.tui.helpers import LEAGUES, parse_lookup, search_species
+from pogolab.tui.helpers import LEAGUES, parse_lookup, rank_color, search_species
+from pogolab.tui.sprites import load_sprites, sprite_to_pil
 
 
 def test_search_species_prefix_only():
@@ -34,16 +36,19 @@ def test_search_species_prefix_only():
 def test_parse_lookup_ivs_and_rank():
     assert parse_lookup("") is None
     assert parse_lookup("0/15/15") == IVs(0, 15, 15)
-    assert parse_lookup("0 15 15") == IVs(0, 15, 15)
-    assert parse_lookup("#1") == 1
-    assert parse_lookup("42") == 42
+    assert parse_lookup("1") == 1
+    assert parse_lookup("123") == 123
 
-    with pytest.raises(ValueError):
-        parse_lookup("16/15/15")
-    with pytest.raises(ValueError):
-        parse_lookup("#0")
-    with pytest.raises(ValueError):
-        parse_lookup("not-valid")
+    for invalid in ("0 15 15", "0,15,15", "0-15-15", "#1", "#0", "0", "16/15/15", "not-valid"):
+        with pytest.raises(ValueError):
+            parse_lookup(invalid)
+
+
+def test_rank_color_scaling():
+    assert rank_color(1, 4096) == "#22C55E"
+    assert rank_color(109, 217) == "#EAB308"
+    assert rank_color(216, 216) == "#EF4444"
+    assert rank_color(1, 1) == "#22C55E"
 
 
 def test_home_screen_and_league_cycling():
@@ -161,13 +166,16 @@ def test_tui_inline_preview_tab_autocomplete_and_lookup():
             assert suggestions.region.y == species_input.region.bottom
             assert suggestions.region.width == species_input.region.width
 
-            # Pressing Tab completes the top prefix match in-place and populates table
+            # Pressing Tab completes the top prefix match in-place and populates table + sprite
             await pilot.press("tab")
             await pilot.pause()
             assert rank_screen.selected_species_id == "dragonite"
             assert species_input.value == "Dragonite"
             assert not suggestions.has_class("-visible")
             assert table.row_count == 100
+            sprite_view = rank_screen.query_one("#summary-sprite", TerminalImage)
+            assert sprite_view.has_class("-visible")
+            assert sprite_view.image is not None
 
             # Lookup specific IV spread and toggle Best Buddy / IV floor
             lookup_input.value = "0/15/15"
@@ -183,10 +191,26 @@ def test_tui_inline_preview_tab_autocomplete_and_lookup():
             await pilot.pause()
             assert rank_screen.iv_floor_index == 1
 
-            # Clearing the Pokémon input resets selection and empties the rank table
+            # Clearing the Pokémon input resets selection, empties rank table, and hides sprite
             species_input.value = ""
             await pilot.pause()
             assert rank_screen.selected_species_id == ""
             assert table.row_count == 0
+            assert not sprite_view.has_class("-visible")
 
     asyncio.run(run())
+
+
+def test_sprites_load_and_render():
+    game_data = load_game_data()
+    sprites = load_sprites()
+    assert len(sprites) == len(game_data.species)
+
+    azumarill = sprites["azumarill"]
+    pil_img = sprite_to_pil(azumarill, scale=2)
+    expected_side = max(azumarill.width, azumarill.height) * 2
+    assert pil_img.mode == "RGBA"
+    assert pil_img.size == (expected_side, expected_side)
+
+    unpadded = sprite_to_pil(azumarill, scale=1, square_pad=False)
+    assert unpadded.size == (azumarill.width, azumarill.height)

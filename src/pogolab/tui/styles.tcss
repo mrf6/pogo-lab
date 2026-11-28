@@ -119,6 +119,7 @@ Screen {
 
 #top-panel {
     height: auto;
+    min-height: 11;
     padding: 1 1 0 1;
 }
 
@@ -156,9 +157,27 @@ Screen {
 #summary-card {
     width: 1fr;
     height: 100%;
-    padding: 1 2;
+    padding: 0 2;
     background: $surface;
     border: round $primary-background;
+    align-vertical: middle;
+}
+
+#summary-text {
+    width: 1fr;
+    height: auto;
+    padding: 1 0;
+}
+
+#summary-sprite {
+    display: none;
+    width: auto;
+    height: 8;
+    margin-left: 2;
+}
+
+#summary-sprite.-visible {
+    display: block;
 }
 
 #rank-table {
